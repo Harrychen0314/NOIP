@@ -42,5 +42,6 @@ int main(void) {
         }
     }
     printf("%d\n",i-1);
+	system("pause");
 	return 0;
 }
