@@ -19,9 +19,9 @@ int choose(int stamp[], int stamp_num, int stamp_max,int money) {
 	}
     return 0;
 }
-int judge(int n,int k,int stamp[]){
+int judge(int n,int k,int stamp[],int num){
 	int i;
-	stamp[i+1]=0;
+	stamp[num+1]=0;
     n++;
 	result=(int*)calloc(n*k+1,sizeof(int));
     for(i=0;i<=n*k;i++){
@@ -45,7 +45,7 @@ int main(void) {
 	for (i = 0; i < n; i++) {
 		scanf("%d", &stamp[i]);
 	}
-    printf("%d\n",judge(n,k,stamp));
+    printf("%d\n",judge(n,k,stamp,i));
 	system("pause");
 	return (0);
 }
