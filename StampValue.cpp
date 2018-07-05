@@ -19,6 +19,22 @@ int choose(int stamp[], int stamp_num, int stamp_max,int money) {
 	}
     return 0;
 }
+int judge(int n,int k,int stamp[]){
+	int i;
+	stamp[i+1]=0;
+    n++;
+	result=(int*)calloc(n*k+1,sizeof(int));
+    for(i=0;i<=n*k;i++){
+        result[i]=0;
+    }
+	choose(stamp, n, k,0);
+	for(i=1;i<=n*k;i++){
+        if(result[i]!=1){
+            break;
+        }
+    }
+	return (i-1);
+}
 int main(void) {
 	int n, k;
 	int i;
@@ -29,19 +45,7 @@ int main(void) {
 	for (i = 0; i < n; i++) {
 		scanf("%d", &stamp[i]);
 	}
-    stamp[i+1]=0;
-    n++;
-    result=(int*)calloc(n*k+1,sizeof(int));
-    for(i=0;i<=n*k;i++){
-        result[i]=0;
-    }
-	choose(stamp, n, k,0);
-	for(i=1;i<=n*k;i++){
-        if(result[i]!=1){
-            break;
-        }
-    }
-    printf("%d\n",i-1);
+    printf("%d\n",judge(n,k,stamp));
 	system("pause");
-	return 0;
+	return (0);
 }
